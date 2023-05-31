@@ -7,6 +7,7 @@
         {
 
             int noOfElements = A.Count;
+
             Console.WriteLine("Array Elements");
             foreach (int number in A)
             {
