@@ -2,7 +2,7 @@
 {
     public class PrefixSumQuestions
     {
-
+        //Create Prefox sum
         public static void createPrefixSum(List<int> A)
         {
 
