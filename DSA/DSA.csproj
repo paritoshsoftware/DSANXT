@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Arrays\Arrays.csproj" />
+    <ProjectReference Include="..\Trees\Trees.csproj" />
     <ProjectReference Include="..\TRIE\TRIE.csproj" />
   </ItemGroup>
 

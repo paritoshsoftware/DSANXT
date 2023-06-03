@@ -13,7 +13,7 @@
             {
                 Console.WriteLine(number);
             }
-            
+            int data = A[3];
             // Buiding prefix sum
             List<int> pf = new List<int>();
             
