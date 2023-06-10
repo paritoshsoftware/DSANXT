@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Xml.Linq;
 
 namespace DSA
 {
@@ -18,12 +19,26 @@ namespace DSA
         public TreeNode buildTree(List<int> A, List<int> B)
         {
 
-        
-
             TreeNode root = CBT(A, 0, A.Count - 1, B, 0, B.Count - 1);
 
             return root;
+        }
 
+        public TreeNode insertLevelOrder(int[] arr, int i)
+        {
+            TreeNode root = null;
+            // Base case for recursion
+            if (i < arr.Length)
+            {
+                root = new TreeNode(arr[i]);
+
+                // insert left child
+                root.left = insertLevelOrder(arr, 2 * i + 1);
+
+                // insert right child
+                root.right = insertLevelOrder(arr, 2 * i + 2);
+            }
+            return root;
         }
 
         public TreeNode CBT(List<int> PO, int POS, int POE, List<int> IO, int IOS, int IOE)
@@ -55,6 +70,62 @@ namespace DSA
 
             return root;
 
+        }
+
+
+        public List<List<int>> VerticalOrder(TreeNode A)
+        {
+            List<List<int>> verticalOrdersList = new List<List<int>>();
+
+            var tuple = new Tuple<int, TreeNode>  (0, A);         
+
+            Queue<Tuple<int, TreeNode>> verticalOrderQueue = new Queue<Tuple<int, TreeNode>>();
+
+            verticalOrderQueue.Enqueue(tuple);
+
+            Dictionary<int, List<int>> orderDictionary = new Dictionary<int, List<int>>();
+
+            int minLevel = Int32.MaxValue;
+
+            int maxLevel = Int32.MinValue;
+            
+            while(verticalOrderQueue.Count > 0)
+            {
+                var currentElement = verticalOrderQueue.Dequeue();
+
+                if(orderDictionary.ContainsKey(currentElement.Item1))
+                {
+                    orderDictionary[currentElement.Item1].Add(currentElement.Item2.val);
+                }
+                else
+                {
+                    orderDictionary.Add(currentElement.Item1, new List<int> { currentElement.Item2.val});
+                }
+
+                minLevel = Math.Min(minLevel, currentElement.Item1);
+                maxLevel = Math.Max(maxLevel, currentElement.Item1);
+
+                if (currentElement.Item2.left != null)
+                {
+                    var tleft = new Tuple<int, TreeNode>(currentElement.Item1 + (-1), currentElement.Item2.left);
+                    verticalOrderQueue.Enqueue(tleft);
+                }
+
+                if (currentElement.Item2.right != null)
+                {
+                    var tright = new Tuple<int, TreeNode>(currentElement.Item1 + (1), currentElement.Item2.right);
+                    verticalOrderQueue.Enqueue(tright);
+                }
+            }
+          
+            for(int i = minLevel; i <= maxLevel; i++) 
+            {
+              
+                verticalOrdersList.Add(orderDictionary[i].ToList());
+               
+            }
+
+            return verticalOrdersList;
         }
     }
 
