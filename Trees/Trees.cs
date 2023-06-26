@@ -1,15 +1,12 @@
-﻿using System.Linq;
-using System.Xml.Linq;
-
-namespace DSA
+﻿namespace DSA
 {
-  
-   //Definition for binary tree
-    
-  
-   public class Trees1
+
+    //Definition for binary tree
+
+
+    public class Trees1
     {
-       public class TreeNode
+        public class TreeNode
         {
             public int val;
             public TreeNode left;
@@ -50,7 +47,7 @@ namespace DSA
             TreeNode root = new TreeNode(x);
 
             int data = PO[POS];
-            int idx = -1 ;
+            int idx = -1;
             for (int i = IOS; i <= IOE; i++)
             {
                 if (IO[i] == data && IO[i] != -1)
@@ -58,15 +55,15 @@ namespace DSA
                     idx = i;
                     break;
                 }
-                
+
             }
 
             int l = idx - IOS;
 
 
-            root.left = CBT(PO,  POS + 1,  POS + l,  IO, IOS,  idx - 1);
+            root.left = CBT(PO, POS + 1, POS + l, IO, IOS, idx - 1);
 
-            root.right = CBT(PO, POS + l + 1, POE,  IO,  idx + 1,IOE);
+            root.right = CBT(PO, POS + l + 1, POE, IO, idx + 1, IOE);
 
             return root;
 
@@ -77,7 +74,7 @@ namespace DSA
         {
             List<List<int>> verticalOrdersList = new List<List<int>>();
 
-            var tuple = new Tuple<int, TreeNode>  (0, A);         
+            var tuple = new Tuple<int, TreeNode>(0, A);
 
             Queue<Tuple<int, TreeNode>> verticalOrderQueue = new Queue<Tuple<int, TreeNode>>();
 
@@ -88,18 +85,18 @@ namespace DSA
             int minLevel = Int32.MaxValue;
 
             int maxLevel = Int32.MinValue;
-            
-            while(verticalOrderQueue.Count > 0)
+
+            while (verticalOrderQueue.Count > 0)
             {
                 var currentElement = verticalOrderQueue.Dequeue();
 
-                if(orderDictionary.ContainsKey(currentElement.Item1))
+                if (orderDictionary.ContainsKey(currentElement.Item1))
                 {
                     orderDictionary[currentElement.Item1].Add(currentElement.Item2.val);
                 }
                 else
                 {
-                    orderDictionary.Add(currentElement.Item1, new List<int> { currentElement.Item2.val});
+                    orderDictionary.Add(currentElement.Item1, new List<int> { currentElement.Item2.val });
                 }
 
                 minLevel = Math.Min(minLevel, currentElement.Item1);
@@ -117,16 +114,141 @@ namespace DSA
                     verticalOrderQueue.Enqueue(tright);
                 }
             }
-          
-            for(int i = minLevel; i <= maxLevel; i++) 
+
+            for (int i = minLevel; i <= maxLevel; i++)
             {
-              
+
                 verticalOrdersList.Add(orderDictionary[i].ToList());
-               
+
             }
 
             return verticalOrdersList;
         }
+
+
+
+        public List<int> RightView(TreeNode A)
+        {
+            List<int> rightViewList = new List<int>();
+            Queue<TreeNode> queue = new Queue<TreeNode>();
+
+            queue.Enqueue(A);
+            queue.Enqueue(null);
+
+            while (queue.Count > 0)
+            {
+                TreeNode currentNode = queue.Dequeue();
+
+                if (currentNode == null)
+                {
+
+                    if (queue.Count == 0)
+                        break;
+                    else
+                    {
+                        rightViewList.Add(queue.Peek().val);
+                        queue.Enqueue(null);
+                    }
+
+                }
+                else
+                {
+                    if (currentNode.right != null)
+                    {
+                        queue.Enqueue(currentNode.right);
+                    }
+
+                    if (currentNode.left != null)
+                    {
+                        queue.Enqueue(currentNode.left);
+                    }
+                }
+
+            }
+
+            return rightViewList;
+        }
+
+
+        public List<int> solve(TreeNode A)
+        {
+
+            List<int> rightViewList = new List<int>();
+            List<int> leftViewList = new List<int>();
+            Queue<TreeNode> queue = new Queue<TreeNode>();
+
+            queue.Enqueue(A);
+            queue.Enqueue(null);
+
+            leftViewList.Add(A.val);
+            while (queue.Count > 0)
+            {
+                TreeNode currentNode = queue.Dequeue();
+
+                if (currentNode == null)
+                {
+
+                    if (queue.Count == 0)
+                        break;
+                    else
+                    {
+                        leftViewList.Add(queue.Peek().val);
+                        queue.Enqueue(null);
+                    }
+
+                }
+                else
+                {
+                    if (currentNode.left != null)
+                    {
+                        queue.Enqueue(currentNode.left);
+                    }
+
+                    if (currentNode.right != null)
+                    {
+                        queue.Enqueue(currentNode.right);
+                    }
+                }
+
+            }
+
+            while (queue.Count > 0)
+            {
+                TreeNode currentNode = queue.Dequeue();
+
+                if (currentNode == null)
+                {
+
+                    if (queue.Count == 0)
+                        break;
+                    else
+                    {
+                        rightViewList.Add(queue.Peek().val);
+                        queue.Enqueue(null);
+                    }
+
+                }
+                else
+                {
+                    if (currentNode.right != null)
+                    {
+                        queue.Enqueue(currentNode.right);
+                    }
+
+                    if (currentNode.left != null)
+                    {
+                        queue.Enqueue(currentNode.left);
+                    }
+                }
+
+            }
+
+            var newList = leftViewList.Concat(rightViewList).ToList();
+
+            return newList;
+        }
+
+
     }
 
 
@@ -147,7 +269,7 @@ namespace DSA
 
             return CBT(B, 0, B.Count - 1, A, 0, A.Count - 1);
 
-        
+
 
         }
 
