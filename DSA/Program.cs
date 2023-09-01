@@ -21,8 +21,42 @@
 //p.finishMaximumJobs(A, B);
 
 
-List<int> A = new List<int> { 22, 52, 22, 67, 73, 54, 83, 8, 95, 51, 96, 40, 97, 33, 46, 24, 21, 90, 66, 47, 26, 24, 21, 50, 8, 50, 86, 41, 9, 57, 51, 35, 89, 11, 68, 2, 75, 76, 60, 2, 1, 52, 58, 26, 97, 58 };
-List<int> B = new List<int> { 53, 78, 14, 97, 84, 55, 11, 5, 31, 9, 80, 82, 20, 3, 7, 78, 59, 95, 80, 66, 26, 48, 6, 32, 57, 66, 48, 44, 96, 61, 28, 19, 32, 10, 80, 42, 26, 21, 88, 9, 36, 74, 41, 81, 42, 4};
-int C = 37;
-DP p = new DP();
-Console.WriteLine(p.fractionalknapsack(A, B, C));
+//List<int> A = new List<int> { 22, 52, 22, 67, 73, 54, 83, 8, 95, 51, 96, 40, 97, 33, 46, 24, 21, 90, 66, 47, 26, 24, 21, 50, 8, 50, 86, 41, 9, 57, 51, 35, 89, 11, 68, 2, 75, 76, 60, 2, 1, 52, 58, 26, 97, 58 };
+//List<int> B = new List<int> { 53, 78, 14, 97, 84, 55, 11, 5, 31, 9, 80, 82, 20, 3, 7, 78, 59, 95, 80, 66, 26, 48, 6, 32, 57, 66, 48, 44, 96, 61, 28, 19, 32, 10, 80, 42, 26, 21, 88, 9, 36, 74, 41, 81, 42, 4};
+//int C = 37;
+//DP p = new DP();
+//Console.WriteLine(p.fractionalknapsack(A, B, C));
+
+
+//List<int> A = new List<int> { 4, 2, 5, 7, 4, 2, 3, 6, 8, 2, 3 };
+//DSA.PrefixSumQuestions.rainwatertrap(A);
+
+
+
+
+
+List<int> x1 = new List<int>();
+x1.Add(1);
+x1.Add(2);
+x1.Add(10);
+
+List<int> x2 = new List<int>();
+x2.Add(2);
+x2.Add(3);
+x2.Add(20);
+
+
+List<int> x3 = new List<int>();
+x3.Add(2);
+x3.Add(5);
+x3.Add(25);
+
+List<List<int>> ints = new List<List<int>>();
+ints.Add(x1);
+ints.Add(x2);
+ints.Add(x3);
+
+
+
+
+DSA.PrefixSumQuestions.continousumquery(5, ints);
