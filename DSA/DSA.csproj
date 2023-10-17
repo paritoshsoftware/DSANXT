@@ -9,10 +9,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Arrays\Arrays.csproj" />
+    <ProjectReference Include="..\Contest\Contest.csproj" />
     <ProjectReference Include="..\DP\DP.csproj" />
     <ProjectReference Include="..\Greedy\Greedy.csproj" />
     <ProjectReference Include="..\Trees\Trees.csproj" />
     <ProjectReference Include="..\TRIE\TRIE.csproj" />
   </ItemGroup>
-
+ 
 </Project>
