@@ -1,10 +1,95 @@
 ﻿using System;
+using System.Security.Cryptography;
 
 namespace DSA
 {
-    public class PrefixSumQuestions
+    public static class PrefixSumQuestions
     {
         //Create Prefox sum
+
+        public static void setMatrixZero()
+        {
+            int[][] matrix = new int[3][];
+            matrix[0] = new int[4];
+            matrix[1] = new int[4];
+            matrix[2] = new int[4];
+            List<int> list = new List<int>() { 0, 1, 2, 0, 3, 4, 0, 2, 1, 3, 1, 5 };
+            int counter = 0;
+            for (int i = 0; i < matrix.Length; i++)
+            {
+                for (int j = 0; j < matrix[i].Length; j++)
+                {
+                    matrix[i][j] = list[counter];
+                    counter++;
+                }
+            }
+
+            Console.WriteLine("Original - Matrix");
+            
+            PrintMatrix(matrix);
+
+            Console.WriteLine("**********************Solution****************************");
+
+            bool isFirstRow = false, isFirstColumn = false;
+            for (int i = 0; i < matrix.Length; i++)
+            {
+                for (int j = 0; j < matrix[i].Length; j++)
+                {
+                    if (matrix[i][j] == 0)
+                    {
+                        if (i == 0) isFirstRow = true;
+                        if (j == 0) isFirstColumn = true;
+                        matrix[0][j] = 0;
+                        matrix[i][0] = 0;
+                    }
+                }
+            }
+
+            Console.WriteLine("First Row and Column Changes - Matrix");
+
+            PrintMatrix(matrix);
+
+            for(int i = 1; i < matrix.Length; i++)
+            {
+                for(int j = 1; j < matrix[i].Length; j++)
+                {
+                    if (matrix[i][0] == 0 || matrix[0][j] == 0)
+                    {
+                        matrix[i][j] = 0;
+                    }
+                }
+            }
+
+            if (isFirstRow)
+            {
+                for(int j = 0; j < matrix[0].Length; j++)
+                    matrix[0][j] = 0;
+            }
+
+            if (isFirstColumn)
+            {
+                for (int i = 0; i < matrix.Length; i++)
+                    matrix[i][0] = 0;
+            }
+
+            Console.WriteLine("Final Solution");
+            PrintMatrix(matrix);
+        }
+
+        private static void PrintMatrix(int[][] matrix)
+        {
+            for (int i = 0; i < matrix.Length; i++)
+            {
+                for (int j = 0; j < matrix[i].Length; j++)
+                {
+                    Console.Write(matrix[i][j].ToString().PadLeft(4));
+                    Console.Write(" | ");
+                }
+
+                Console.WriteLine();
+            }
+        }
+
         public static void createPrefixSum(List<int> A)
         {
 

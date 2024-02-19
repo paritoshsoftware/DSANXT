@@ -151,6 +151,4 @@
 
 //DSA._2DArrays.merinterval(ints,10,8);
 
-string res = CM2_Revision.solve_Frequqency_Based_Strings("scaleracademy");
-Console.WriteLine("scaleracademy");
-Console.WriteLine(res);
+PrefixSumQuestions.setMatrixZero();
