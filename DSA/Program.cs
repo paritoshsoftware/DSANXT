@@ -151,4 +151,7 @@
 
 //DSA._2DArrays.merinterval(ints,10,8);
 
-PrefixSumQuestions.setMatrixZero();
+//PrefixSumQuestions.setMatrixZero();
+
+int[] nums = new int[] { 1, 2, 3, 4, 5, 6, 7 };
+  Console.WriteLine(DSA.ArraysEasy.rotateArray2(nums,3));
