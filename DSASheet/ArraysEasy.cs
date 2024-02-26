@@ -203,26 +203,37 @@ namespace DSA
 
             return ans;
         }
-    }
-}
-
-public class Solution {
-    public void Rotate(int[] nums, int k) {
-        
-        int size = nums.Length - 1;
-        reverseArray(nums, 0, size);
-        reverseArray(nums, 0, k - 1);
-        reverseArray(nums, k, size);
-    }
-
-    public  void reverseArray(int[] nums, int start, int end)
-    {
-        int temp = 0;
-        while(start < end)
+        /// <summary>
+        /// https://leetcode.com/problems/move-zeroes/description/
+        /// </summary>
+        /// <param name="nums"></param>
+        public static bool moveZeroToEnd(int[] nums)
         {
-            temp = nums[start];
-            nums[start++] = nums[end];
-            nums[end--] = temp;
+            int i, j = -1;
+
+            for(i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] == 0)
+                {
+                    j = i;
+                    break;
+                }
+            }
+            int temp ;
+            for(i = j+1; i< nums.Length; i++)
+            {
+                if (nums[i]!=0)
+                {
+                    temp = nums[i];                  
+                    nums[i] = nums[j];
+                    nums[j] = temp;
+                    j++;
+                }
+            }
+
+            return true;
+
         }
     }
 }
+

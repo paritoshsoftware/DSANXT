@@ -153,5 +153,5 @@
 
 //PrefixSumQuestions.setMatrixZero();
 
-int[] nums = new int[] { 1, 2, 3, 4, 5, 6, 7 };
-  Console.WriteLine(DSA.ArraysEasy.rotateArray2(nums,3));
+int[] nums = new int[] { 0, 1, 0, 3, 12 };
+  Console.WriteLine(DSA.ArraysEasy.moveZeroToEnd(nums));
