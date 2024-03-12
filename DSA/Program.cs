@@ -154,4 +154,4 @@
 //PrefixSumQuestions.setMatrixZero();
 
 int[] nums = new int[] { 0, 1, 0, 3, 12 };
-  Console.WriteLine(DSA.ArraysEasy.moveZeroToEnd(nums));
+  Console.WriteLine(DSA.ArraysMedium.SumProblem2());
