@@ -153,5 +153,5 @@
 
 //PrefixSumQuestions.setMatrixZero();
 
-int[] nums = new int[] { 0, 1, 0, 3, 12 };
-  Console.WriteLine(DSA.ArraysMedium.SumProblem2());
+int[] nums = new int[] { 2, 0, 2, 1, 1, 0 };
+DSA.ArraysMedium.SortColors(nums);

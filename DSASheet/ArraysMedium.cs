@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace DSA
 {
@@ -48,6 +50,60 @@ namespace DSA
 
             }
            return result;
+
+        }
+
+        /// <summary>
+        /* Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
+        We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.
+        You must solve this problem without using the library's sort function.*/
+        /// </summary>
+        ///https://leetcode.com/problems/sort-colors/description/
+        /// <param name="nums"></param>
+        public static void SortColors(int[] nums)
+        {
+            int mid = 0;
+            int low = 0;
+            int high = nums.Length - 1;
+
+            while(mid <= low)
+            {
+                if (nums[mid] == 0)
+                {
+                    swap(nums, mid, low);
+                    low++;
+                    mid++;
+                }
+                else if (nums[mid]==1)
+                {
+                    mid++;
+                }
+                else
+                {
+                     swap(nums,mid, high);
+                    high--;
+                }
+            }
+        }
+
+        private static void swap(int[] nums, int mid, int pointer)
+        {
+            int temp = nums[mid];
+            nums[mid] = nums[pointer];
+            nums[pointer] = temp;
+        }
+
+        /// <summary>
+        // Given an array nums of size n, return the majority element.
+        // The majority element is the element that appears more than ⌊n / 2⌋ times.You may assume that the majority element always exists in the array.
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public int MajorityElement(int[] nums)
+        {
+            int ans = 0;
+
+            return ans;
 
         }
     }
