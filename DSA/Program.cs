@@ -153,5 +153,5 @@
 
 //PrefixSumQuestions.setMatrixZero();
 
-int[] nums = new int[] { 2, 0, 2, 1, 1, 0 };
-DSA.ArraysMedium.SortColors(nums);
+int[] nums = new int[] { -1 };
+DSA.ArraysMedium.MaxSubArray(nums);

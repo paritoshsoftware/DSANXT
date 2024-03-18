@@ -140,5 +140,31 @@ namespace DSA
             return ans;
 
         }
+
+        /// <summary>
+        /// Given an integer array nums, find the subarray with the largest sum, and return its sum.
+        /// </summary>
+        /// <param name="nums"></param>
+        /// https://leetcode.com/problems/maximum-subarray/description/
+        /// <returns></returns>
+        public static int MaxSubArray(int[] nums)
+        {
+            int max = int.MinValue;
+            int sum = 0;
+
+            for(int i = 0; i <= nums.Length - 1; i++)
+            {
+                sum += nums[i];
+
+
+                max = Math.Max(sum, max);
+
+                if (sum < 0)
+                   sum = 0;           
+
+            } 
+
+            return max;
+        }
     }
 }
