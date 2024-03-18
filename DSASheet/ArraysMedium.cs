@@ -98,11 +98,45 @@ namespace DSA
         // The majority element is the element that appears more than ⌊n / 2⌋ times.You may assume that the majority element always exists in the array.
         /// </summary>
         /// <param name="nums"></param>
+        /// https://leetcode.com/problems/majority-element/submissions/1206877439/
         /// <returns></returns>
         public int MajorityElement(int[] nums)
         {
+            int majorityElement = nums[0];
+            int possibeFreq = 0;
+            int majorityFreq = nums.Length / 2;
+            int freq = 0;
             int ans = 0;
 
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i]==majorityElement)
+                {
+                    possibeFreq++;
+                }
+                else
+                {
+                    possibeFreq--;
+                }
+                if (possibeFreq <= 0)
+                {
+                    majorityElement = nums[i];
+                    possibeFreq++;
+                }
+            }
+
+            for(int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] == majorityElement)
+                {
+                    freq++;
+                }
+            }
+           
+            if(freq > majorityFreq)
+            {
+                ans =  majorityElement;
+            }
             return ans;
 
         }
