@@ -201,5 +201,43 @@ namespace DSA
             return ans;
         }
 
+
+        public static int LongestConsecutive(int[] nums)
+        {
+            HashSet<int> ans = new HashSet<int>();
+
+            for(int i = 0; i < nums.Length; i++)
+            {
+                ans.Add(nums[i]);
+            }
+
+            int counter = 0;
+            int longestCount = int.MinValue;           
+            for(int i = 0; i < nums.Length; i++) {
+
+                if (!ans.Contains(nums[i] - 1))
+                {
+                    int possibleStartingPoint = nums[i];
+                    while (true)
+                    {
+                        if (ans.Contains(possibleStartingPoint + 1))
+                        {
+                            counter++;
+                        }
+                        else
+                        {
+                            counter = 0;                           
+                        }
+
+                        longestCount = Math.Max(longestCount, counter);
+
+                        if (counter == 0) break;
+                    }
+                }
+            }
+
+            return longestCount;
+        }
+
     }
 }
