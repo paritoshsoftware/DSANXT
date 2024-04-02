@@ -153,5 +153,5 @@
 
 //PrefixSumQuestions.setMatrixZero();
 
-int[] nums = new int[] { 3, 1, -2, -5, 2, -4 };
-var ans = DSA.ArraysMedium.RearrangeArray(nums);
+int[] nums = new int[] { 0, 3, 7, 2, 5, 8, 4, 6, 0, 1 };
+var ans = DSA.ArraysMedium.LongestConsecutive(nums);

@@ -201,5 +201,55 @@ namespace DSA
             return ans;
         }
 
+
+        /// <summary>
+        /// https://leetcode.com/problems/longest-consecutive-sequence/description/
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public static int LongestConsecutive(int[] nums)
+        {
+            HashSet<int> ans = new HashSet<int>();
+
+            for(int i = 0; i < nums.Length; i++)
+            {
+                ans.Add(nums[i]);
+            }
+
+            int counter = 1;
+            int longestCount = 1;
+
+            if (nums.Length <= 0)
+                return 0;
+
+            for (int i = 0; i < nums.Length; i++) {
+
+                if (!ans.Contains(nums[i] - 1))
+                {
+                    int possibleStartingPoint = nums[i];
+                  
+                    while (true)
+                    {
+                       
+                        if (ans.Contains(++possibleStartingPoint))
+                        {
+                             counter++;
+                        }
+                        else
+                        {
+                            counter = 1;
+                            break;
+                        }
+
+                        longestCount = Math.Max(longestCount, counter);
+
+                       
+                    }
+                }
+            }
+
+            return longestCount;
+        }
+
     }
 }
