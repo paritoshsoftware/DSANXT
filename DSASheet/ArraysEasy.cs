@@ -234,6 +234,90 @@ namespace DSA
             return true;
 
         }
+
+        /// <summary>
+        /// Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+        /// </summary>
+        /// <param name="nums">
+        /// Input: nums = [3,0,1]
+        /// Output: 2
+        /// Explanation: n = 3 since there are 3 numbers, so all numbers are in the range[0, 3]. 2 is the missing number in the range since it does not appear in nums.
+        /// </param>
+        /// <returns></returns>
+        public static int MissingNumber(int[] nums)
+        {
+            int n = nums.Length;
+            int sum = 0;
+
+            for(int i = 0; i < nums.Length; i++)
+            {
+                sum = sum + nums[i];
+            }
+
+            int sumOfNumbers = (n*(n + 1)/2);
+
+            int missingNumber = sumOfNumbers - sum;
+
+            return missingNumber;
+
+        }
+        /// <summary>
+        /// https://leetcode.com/problems/missing-number/description/
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+
+        public static int MissingNumber2(int[] nums)
+        {
+            int n = nums.Length;
+            
+            int xor1 = nums[0] , xor2 = 1 ;
+
+            for(int i = 1; i < n; i++)
+            {
+                xor1 = xor1 ^ nums[i];
+            }
+            for (int i = 2; i <= n; i++)
+            {
+                xor2 = xor2 ^ i;
+            }
+           
+
+            int missingNumber = xor1 ^ xor2;
+
+            return missingNumber;
+
+        }
+
+
+        /// <summary>
+        /// https://leetcode.com/problems/max-consecutive-ones/description/
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public static int FindMaxConsecutiveOnes(int[] nums)
+        {
+            int counter = 0;
+
+            int maxCountValue = int.MinValue;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] == 1)
+                {
+                    counter++;                    
+                }
+                else
+                { 
+                    counter = 0;
+                }
+
+                maxCountValue = Math.Max(maxCountValue, counter);
+
+            }
+
+            return maxCountValue;
+        }
     }
 }
 

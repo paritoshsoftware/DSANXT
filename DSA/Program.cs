@@ -153,5 +153,5 @@
 
 //PrefixSumQuestions.setMatrixZero();
 
-int[] nums = new int[] { -1 };
-DSA.ArraysMedium.MaxSubArray(nums);
+int[] nums = new int[] { 1, 1, 0, 1, 1, 1 };
+DSA.ArraysEasy.FindMaxConsecutiveOnes(nums);
