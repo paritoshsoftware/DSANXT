@@ -201,7 +201,11 @@ namespace DSA
             return ans;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
         public static int LongestConsecutive(int[] nums)
         {
             HashSet<int> ans = new HashSet<int>();
