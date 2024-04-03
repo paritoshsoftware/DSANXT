@@ -201,8 +201,9 @@ namespace DSA
             return ans;
         }
 
+
         /// <summary>
-        /// 
+        /// https://leetcode.com/problems/longest-consecutive-sequence/description/
         /// </summary>
         /// <param name="nums"></param>
         /// <returns></returns>
@@ -215,27 +216,34 @@ namespace DSA
                 ans.Add(nums[i]);
             }
 
-            int counter = 0;
-            int longestCount = int.MinValue;           
-            for(int i = 0; i < nums.Length; i++) {
+            int counter = 1;
+            int longestCount = 1;
+
+            if (nums.Length <= 0)
+                return 0;
+
+            for (int i = 0; i < nums.Length; i++) {
 
                 if (!ans.Contains(nums[i] - 1))
                 {
                     int possibleStartingPoint = nums[i];
+                  
                     while (true)
                     {
-                        if (ans.Contains(possibleStartingPoint + 1))
+                       
+                        if (ans.Contains(++possibleStartingPoint))
                         {
-                            counter++;
+                             counter++;
                         }
                         else
                         {
-                            counter = 0;                           
+                            counter = 1;
+                            break;
                         }
 
                         longestCount = Math.Max(longestCount, counter);
 
-                        if (counter == 0) break;
+                       
                     }
                 }
             }
