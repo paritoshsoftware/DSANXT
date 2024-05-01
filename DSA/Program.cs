@@ -153,5 +153,12 @@
 
 //PrefixSumQuestions.setMatrixZero();
 
-int[] nums = new int[] { 0, 3, 7, 2, 5, 8, 4, 6, 0, 1 };
-var ans = DSA.ArraysMedium.LongestConsecutive(nums);
+//int[] nums = new int[] { 0, 3, 7, 2, 5, 8, 4, 6, 0, 1 };
+//var ans = DSA.ArraysMedium.LongestConsecutive(nums);
+
+//List<string> records = new List<string>() { "eat", "tea", "tan", "ate", "nat", "bat" };
+//var ans = DSA.Contest.getAnagrams(records);
+
+int[] nums = new int[] { 5, 7, 7, 8, 8, 10 };
+var ans = DSA.BinarySearch.SearchRangeFirstAndLast(nums, 6);
+Console.WriteLine(ans);
