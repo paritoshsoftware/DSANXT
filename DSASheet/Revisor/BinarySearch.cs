@@ -421,5 +421,59 @@ namespace DSA
 
         }
 
+        public static int BasicSearch(int[] nums, int target)
+        {
+            int result = -1;
+            int low = 0;
+            int high = nums.Length - 1;
+            int mid = 0;
+            while (low <= high)
+            {
+                mid = (low + high) / 2;
+                if (target == nums[mid])
+                {
+                    return mid;
+                }
+                else if (target < nums[mid])
+                {
+                    low = low + 1;
+                }
+                else
+                {
+                    high = high - 1;
+                }
+
+            }
+
+            return result;
+        }
+
+
+        public static int BasicLowerSearch(int[] nums, int target)
+        {
+            int result = -1;
+            int low = 0;
+            int high = nums.Length - 1;
+            int mid = 0;
+            int ans = 0;
+            while (low <= high)
+            {
+                mid = (low + high) / 2;
+              
+                 if ( nums[mid] < target )
+                {
+                    low = low + 1;
+                    ans = low;
+                }
+                else
+                {
+                    high = high - 1;
+                }
+
+            }
+
+            return ans;
+        }
+
     }
 }
