@@ -159,6 +159,6 @@
 //List<string> records = new List<string>() { "eat", "tea", "tan", "ate", "nat", "bat" };
 //var ans = DSA.Contest.getAnagrams(records);
 
-int[] nums = new int[] { 10,20,30,40,50 };
-var ans = DSA.BinarySearchOneDimensionalArrays.ceil(nums, nums.Length, 25);
+int[] nums = new int[] { 5, 7, 7, 8, 8, 10 };
+var ans = DSA.BinarySearchOneDimensionalArrays.firstAndLastArray(nums,  6);
 Console.WriteLine(ans);
