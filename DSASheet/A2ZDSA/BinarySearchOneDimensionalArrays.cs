@@ -207,5 +207,62 @@ namespace DSA
             return -1;
         }
 
+        public static int FindMin(int[] nums)
+        {
+
+            int low = 0 , mid;
+            int high = nums.Length - 1;
+            int ans = int.MaxValue;
+
+            while (low <= high)
+            {
+                mid = low + (high - low) / 2;
+
+                if (nums[low] <= nums[mid])
+                {
+                    ans = Math.Min(ans, nums[low]);
+                    low = mid + 1;
+                }
+                else
+                {
+                    ans = Math.Min(ans, nums[mid]);
+                    high = mid - 1;
+                }
+                
+            }
+
+            return ans;
+        }
+
+        public static int FindPeak(int[] nums)
+        {
+            int n = nums.Length;
+            int low = 1;
+
+            int high = n - 2;
+
+            if (n == 1 || nums[0] > nums[1]) return 0;
+
+            if (nums[n - 1] > nums[n - 2]) return n - 1;
+            int mid;
+
+            while (low <= high)
+            {
+
+                mid = low + (high - low) / 2;
+
+                if (nums[mid - 1] < nums[mid] && nums[mid] > nums[mid + 1])
+                    return mid;
+
+                if (nums[mid] > nums[mid + 1])
+                    high = mid - 1;
+                else
+                    low = mid + 1;
+
+            }
+
+            return -1;
+        }
+
     }
 }
