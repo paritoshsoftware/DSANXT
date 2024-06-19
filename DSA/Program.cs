@@ -160,5 +160,7 @@
 //var ans = DSA.Contest.getAnagrams(records);
                         
 int[] nums = new int[] { 4, 5, 1, 2, 3 };
-var ans = DSA.BinarySearchOneDimensionalArrays.FindMin(nums);
+Random rand = new Random(500);
+
+var ans = DSA.BinarySearchOnAnswers.floorSqrt(10000);
 Console.WriteLine(ans);
