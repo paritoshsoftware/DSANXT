@@ -162,5 +162,5 @@
 int[] nums = new int[] { 4, 5, 1, 2, 3 };
 Random rand = new Random(500);
 
-var ans = DSA.BinarySearchOnAnswers.floorSqrt(10000);
+var ans = DSA.BinarySearchOnAnswers.NRoot(9, 262144);
 Console.WriteLine(ans);
