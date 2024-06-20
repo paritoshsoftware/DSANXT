@@ -159,8 +159,8 @@
 //List<string> records = new List<string>() { "eat", "tea", "tan", "ate", "nat", "bat" };
 //var ans = DSA.Contest.getAnagrams(records);
                         
-int[] nums = new int[] { 4, 5, 1, 2, 3 };
+int[] nums = new int[] { 1000000000, 1000000000 };
 Random rand = new Random(500);
 
-var ans = DSA.BinarySearchOnAnswers.floorSqrt(10000);
+var ans = DSA.BinarySearchOnAnswers.MinDays(nums, 1,1);
 Console.WriteLine(ans);
