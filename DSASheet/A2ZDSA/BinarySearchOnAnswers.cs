@@ -96,7 +96,7 @@ namespace DSA
             low = min;
             high = max;
 
-            if ((m * k) > bloomDay.Length)
+            if ((long)(m * k) > bloomDay.Length)
                 return -1;
 
             while(low <= high )
@@ -138,10 +138,8 @@ namespace DSA
 
             possibleBouquet += counter / adjacentFlower;
 
-            if (possibleBouquet >= requiredBouquet)
-                return true;
-            else
-                return false;
+            return (possibleBouquet >= requiredBouquet);
+            
         }
     }
 }
