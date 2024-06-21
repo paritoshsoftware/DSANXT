@@ -141,5 +141,77 @@ namespace DSA
             return (possibleBouquet >= requiredBouquet);
             
         }
+
+        public static int ShipWithinDays(int[] weights, int days)
+        {
+
+            int maximumWeight = 0;
+            int minimumShipWeight = -1;
+
+            for (int i=0; i < weights.Length; i++)
+            {
+                maximumWeight += weights[i];
+            }
+
+            int low = 1;
+            int high = maximumWeight;
+            int minimumPossibleWeight;
+            int result;
+
+            while(low <= high)
+            {
+                minimumPossibleWeight = low + (high - low) / 2;
+
+                result = checkMinimumDays(weights, days, minimumPossibleWeight);
+
+                if (result == 1 || result == 3 )
+                {
+                    minimumShipWeight = minimumPossibleWeight;
+                    high = minimumPossibleWeight - 1;
+                }
+                else 
+                {
+                    low = minimumPossibleWeight + 1;
+                }                      
+
+
+            }
+
+            return minimumShipWeight;
+
+        }
+
+        public static int checkMinimumDays(int[] weights, int days , int possibleWeight) {
+
+            int daysCounter = 1;
+            int commulativeWeight = 0;
+
+            for(int i = 0; i <weights.Length;i++)
+            {
+                commulativeWeight += weights[i];
+
+                if (weights[i] > possibleWeight || commulativeWeight > possibleWeight)
+                {
+                    daysCounter++;
+                    commulativeWeight = 0;
+                    i--;
+                    if (daysCounter > days) break;
+                    continue;
+                }
+            }
+
+            if(daysCounter== days)
+            {
+                return 1;
+            }
+            else if(daysCounter > days) {
+                return 2;
+            }
+            else
+            {
+                return 3;
+            }
+        
+        }
     }
 }
