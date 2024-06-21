@@ -158,9 +158,18 @@
 
 //List<string> records = new List<string>() { "eat", "tea", "tan", "ate", "nat", "bat" };
 //var ans = DSA.Contest.getAnagrams(records);
-                        
-int[] nums = new int[] { 1000000000, 1000000000 };
-Random rand = new Random(500);
 
-var ans = DSA.BinarySearchOnAnswers.MinDays(nums, 1,1);
-Console.WriteLine(ans);
+Console.WriteLine("TestCase1");
+int[] nums = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+var ans = DSA.BinarySearchOnAnswers.ShipWithinDays(nums, 5);
+Console.WriteLine("Expected Output 15 && Actual Outuput " + ans);
+
+Console.WriteLine("TestCase2");
+nums = new int[] { 3, 2, 2, 4, 1, 4 };
+ans = DSA.BinarySearchOnAnswers.ShipWithinDays(nums, 3);
+Console.WriteLine("Expected Output 6 && Actual Outuput " + ans);
+
+Console.WriteLine("TestCase3");
+ nums = new int[] { 1, 2, 3, 1, 1 };
+ ans = DSA.BinarySearchOnAnswers.ShipWithinDays(nums, 4);
+Console.WriteLine("Expected Output 3 && Actual Outuput " + ans);
