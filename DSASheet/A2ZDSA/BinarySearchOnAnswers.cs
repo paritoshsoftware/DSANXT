@@ -220,8 +220,8 @@ namespace DSA
 
             int low = 0;
             int high = arr.Length - 1;
-            int mid = 0;
-            int missing = 0;
+            int mid ;
+            int missing ;
             while (low <= high)
             {
                 mid = low + (high - low) / 2;
