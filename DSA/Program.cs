@@ -160,16 +160,6 @@
 //var ans = DSA.Contest.getAnagrams(records);
 
 Console.WriteLine("TestCase1");
-int[] nums = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-var ans = DSA.BinarySearchOnAnswers.ShipWithinDays(nums, 5);
-Console.WriteLine("Expected Output 15 && Actual Outuput " + ans);
-
-Console.WriteLine("TestCase2");
-nums = new int[] { 3, 2, 2, 4, 1, 4 };
-ans = DSA.BinarySearchOnAnswers.ShipWithinDays(nums, 3);
-Console.WriteLine("Expected Output 6 && Actual Outuput " + ans);
-
-Console.WriteLine("TestCase3");
- nums = new int[] { 1, 2, 3, 1, 1 };
- ans = DSA.BinarySearchOnAnswers.ShipWithinDays(nums, 4);
-Console.WriteLine("Expected Output 3 && Actual Outuput " + ans);
+int[] nums = new int[] { 0, 3, 4, 7, 10, 9 };
+var ans = DSA.BinarySearchOnAnswers.aggressive_cows(nums, 4);
+Console.WriteLine(ans);

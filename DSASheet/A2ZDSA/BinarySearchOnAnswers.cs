@@ -235,5 +235,49 @@ namespace DSA
             return low + k;
 
         }
+
+        public static int aggressive_cows(int[] arr, int k)
+        {
+           
+            Array.Sort(arr);
+            int low = 1;
+            int high = arr[arr.Length-1] - arr[0];
+            int mid;
+            while(low <= high)
+            {
+                mid = low + (high - low) / 2;
+               if(canWePlace(arr, mid, k))
+                {
+                    low = mid + 1; 
+                }
+               else
+                {
+                    high = mid - 1;
+                }
+            }
+
+            return high;
+
+        }
+
+        public static bool canWePlace(int[] cows, int dist, int desiredCows)
+        {
+            int cntCows = 1;
+            int last = cows[0];
+            for( int i = 1; i < cows.Length; i++)
+            {
+                if (cows[i] - last >= dist )
+                {
+                    cntCows++;
+                    last = cows[i];
+                }
+                   
+
+                if (cntCows >= desiredCows)
+                    return true;
+            }
+
+            return false;
+        }
     }
 }
