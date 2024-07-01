@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -278,6 +279,56 @@ namespace DSA
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// BookAllocation and Split Array nad PainterPartitionProblem also Checa Ship M Pacages
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="n"></param>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        public static int findPages(int [] arr, int n, int m)
+        {
+            if (m > n)
+                return -1;
+            int low = arr.Max();
+            int high = arr.Sum();
+            int mid;
+            int students;
+            while(low <= high)
+            {
+                mid = low + (high - low) / 2;
+                students = canWeFindStudents(arr, mid);
+                if (students > m)
+                    low = mid + 1;
+                else
+                    high = mid - 1;
+            }
+
+            return low;
+        }
+        
+        public static int canWeFindStudents(int[] arr, int possiblePages)
+        {
+            int noOfStudent = 1;
+            long comulativePages = 0;
+
+            for(int i = 0; i < arr.Length; i++)
+            {
+                if (comulativePages + arr[i] <= possiblePages)
+                {
+                    comulativePages += arr[i];
+                }
+                else
+                {
+                    noOfStudent++;                    
+                    comulativePages = arr[i];
+                }
+            }
+
+
+            return noOfStudent;
         }
     }
 }
