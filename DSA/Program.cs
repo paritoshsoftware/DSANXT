@@ -159,7 +159,6 @@
 //List<string> records = new List<string>() { "eat", "tea", "tan", "ate", "nat", "bat" };
 //var ans = DSA.Contest.getAnagrams(records);
 
-Console.WriteLine("TestCase1");
-int[] nums = new int[] { 0, 3, 4, 7, 10, 9 };
-var ans = DSA.BinarySearchOnAnswers.aggressive_cows(nums, 4);
+int[] nums = new int[] { 12, 34, 67, 90 };
+var ans = DSA.BinarySearchOnAnswers.findPages(nums,4,2);
 Console.WriteLine(ans);
